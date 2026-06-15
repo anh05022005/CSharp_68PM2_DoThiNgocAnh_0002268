@@ -125,7 +125,35 @@ namespace QLSV
 
         private void btn_xoa_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(_selectedMaSV))
+            {
+                MessageBox.Show("Vui lòng chọn sinh viên cần xóa!", "Cảnh báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
+            var result = MessageBox.Show(
+                "Bạn có chắc muốn xóa sinh viên '" + txtHoTen.Text + "'?",
+                "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result != DialogResult.Yes) return;
+
+            var sv = db.tbl_sinhviens.FirstOrDefault(x => x.id == _selectedMaSV);
+            if (sv == null) { MessageBox.Show("Không tìm thấy sinh viên!"); return; }
+
+            try
+            {
+                db.tbl_sinhviens.DeleteOnSubmit(sv);
+                db.SubmitChanges();
+                MessageBox.Show("Xóa thành công!", "Thông báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoadData();
+                ClearForm();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi xóa:\n" + ex.Message, "Lỗi",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btn_lammoi_Click(object sender, EventArgs e)
