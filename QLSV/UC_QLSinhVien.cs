@@ -93,7 +93,34 @@ namespace QLSV
 
         private void btn_sua_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(_selectedMaSV))
+            {
+                MessageBox.Show("Vui lòng chọn sinh viên cần sửa!", "Cảnh báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
+            var sv = db.tbl_sinhviens.FirstOrDefault(x => x.id == _selectedMaSV);
+            if (sv == null) { MessageBox.Show("Không tìm thấy sinh viên!"); return; }
+
+            sv.hoten = txtHoTen.Text.Trim();
+            sv.ngaysinh = dtpNgaySinh.Value.Date;
+            sv.gioitinh = cboGioiTinh.Text;
+            sv.malop = cbx_lop.SelectedValue?.ToString()?.Trim();
+
+            try
+            {
+                db.SubmitChanges();
+                MessageBox.Show("Cập nhật thành công!", "Thông báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoadData();
+                ClearForm();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi sửa:\n" + ex.Message, "Lỗi",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btn_xoa_Click(object sender, EventArgs e)
@@ -103,7 +130,19 @@ namespace QLSV
 
         private void btn_lammoi_Click(object sender, EventArgs e)
         {
+            ClearForm();
+        }
 
+        private void ClearForm()
+        {
+            txtMSSV.Clear();
+            txtHoTen.Clear();
+            dtpNgaySinh.Value = DateTime.Now;
+            cboGioiTinh.SelectedIndex = -1;
+            cbx_lop.SelectedIndex = -1;
+
+            _selectedMaSV = "";
+            txtHoTen.Focus();
         }
 
         private void dgv_DSSV_CellClick(object sender, DataGridViewCellEventArgs e)
