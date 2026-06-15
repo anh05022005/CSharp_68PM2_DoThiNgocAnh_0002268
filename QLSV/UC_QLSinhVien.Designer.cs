@@ -40,18 +40,18 @@
             this.txtMSSV = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.label7 = new System.Windows.Forms.Label();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.lb_trang_banghi = new System.Windows.Forms.Label();
+            this.btn_cuoi = new System.Windows.Forms.Button();
+            this.btn_truoc = new System.Windows.Forms.Button();
+            this.btn_dau = new System.Windows.Forms.Button();
+            this.btn_timKiem = new System.Windows.Forms.Button();
+            this.txt_timKiem = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.btn_lammoi = new System.Windows.Forms.Button();
             this.btn_xoa = new System.Windows.Forms.Button();
             this.btn_sua = new System.Windows.Forms.Button();
             this.btn_them = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
+            this.btn_sau = new System.Windows.Forms.Button();
             this.dgv_DSSV = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_DSSV)).BeginInit();
@@ -175,61 +175,65 @@
             this.label2.TabIndex = 12;
             this.label2.Text = "Mã sinh viên:";
             // 
-            // label7
+            // lb_trang_banghi
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(779, 796);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(139, 16);
-            this.label7.TabIndex = 49;
-            this.label7.Text = "Trang 1/1   |   3 bản ghi";
+            this.lb_trang_banghi.AutoSize = true;
+            this.lb_trang_banghi.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_trang_banghi.Location = new System.Drawing.Point(786, 796);
+            this.lb_trang_banghi.Name = "lb_trang_banghi";
+            this.lb_trang_banghi.Size = new System.Drawing.Size(139, 16);
+            this.lb_trang_banghi.TabIndex = 49;
+            this.lb_trang_banghi.Text = "Trang 1/1   |   3 bản ghi";
             // 
-            // button9
+            // btn_cuoi
             // 
-            this.button9.Location = new System.Drawing.Point(1093, 769);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(75, 70);
-            this.button9.TabIndex = 48;
-            this.button9.Text = ">>";
-            this.button9.UseVisualStyleBackColor = true;
+            this.btn_cuoi.Location = new System.Drawing.Point(1093, 769);
+            this.btn_cuoi.Name = "btn_cuoi";
+            this.btn_cuoi.Size = new System.Drawing.Size(75, 70);
+            this.btn_cuoi.TabIndex = 48;
+            this.btn_cuoi.Text = ">>";
+            this.btn_cuoi.UseVisualStyleBackColor = true;
+            this.btn_cuoi.Click += new System.EventHandler(this.btn_cuoi_Click);
             // 
-            // button8
+            // btn_truoc
             // 
-            this.button8.Location = new System.Drawing.Point(637, 769);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 70);
-            this.button8.TabIndex = 46;
-            this.button8.Text = "<";
-            this.button8.UseVisualStyleBackColor = true;
+            this.btn_truoc.Location = new System.Drawing.Point(637, 769);
+            this.btn_truoc.Name = "btn_truoc";
+            this.btn_truoc.Size = new System.Drawing.Size(75, 70);
+            this.btn_truoc.TabIndex = 46;
+            this.btn_truoc.Text = "<";
+            this.btn_truoc.UseVisualStyleBackColor = true;
+            this.btn_truoc.Click += new System.EventHandler(this.btn_truoc_Click);
             // 
-            // button7
+            // btn_dau
             // 
-            this.button7.Location = new System.Drawing.Point(556, 769);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 70);
-            this.button7.TabIndex = 45;
-            this.button7.Text = "<<";
-            this.button7.UseVisualStyleBackColor = true;
+            this.btn_dau.Location = new System.Drawing.Point(556, 769);
+            this.btn_dau.Name = "btn_dau";
+            this.btn_dau.Size = new System.Drawing.Size(75, 70);
+            this.btn_dau.TabIndex = 45;
+            this.btn_dau.Text = "<<";
+            this.btn_dau.UseVisualStyleBackColor = true;
+            this.btn_dau.Click += new System.EventHandler(this.btn_dau_Click);
             // 
-            // button6
+            // btn_timKiem
             // 
-            this.button6.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button6.Location = new System.Drawing.Point(930, 55);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(133, 47);
-            this.button6.TabIndex = 43;
-            this.button6.Text = "Tìm ";
-            this.button6.UseVisualStyleBackColor = false;
+            this.btn_timKiem.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.btn_timKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_timKiem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_timKiem.Location = new System.Drawing.Point(930, 55);
+            this.btn_timKiem.Name = "btn_timKiem";
+            this.btn_timKiem.Size = new System.Drawing.Size(133, 47);
+            this.btn_timKiem.TabIndex = 43;
+            this.btn_timKiem.Text = "Tìm ";
+            this.btn_timKiem.UseVisualStyleBackColor = false;
+            this.btn_timKiem.Click += new System.EventHandler(this.btn_timKiem_Click);
             // 
-            // textBox5
+            // txt_timKiem
             // 
-            this.textBox5.Location = new System.Drawing.Point(555, 56);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(356, 22);
-            this.textBox5.TabIndex = 39;
+            this.txt_timKiem.Location = new System.Drawing.Point(555, 56);
+            this.txt_timKiem.Name = "txt_timKiem";
+            this.txt_timKiem.Size = new System.Drawing.Size(356, 22);
+            this.txt_timKiem.TabIndex = 39;
             // 
             // label6
             // 
@@ -293,14 +297,15 @@
             this.btn_them.UseVisualStyleBackColor = false;
             this.btn_them.Click += new System.EventHandler(this.btn_them_Click);
             // 
-            // button10
+            // btn_sau
             // 
-            this.button10.Location = new System.Drawing.Point(1012, 769);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(75, 70);
-            this.button10.TabIndex = 47;
-            this.button10.Text = ">";
-            this.button10.UseVisualStyleBackColor = true;
+            this.btn_sau.Location = new System.Drawing.Point(1012, 769);
+            this.btn_sau.Name = "btn_sau";
+            this.btn_sau.Size = new System.Drawing.Size(75, 70);
+            this.btn_sau.TabIndex = 47;
+            this.btn_sau.Text = ">";
+            this.btn_sau.UseVisualStyleBackColor = true;
+            this.btn_sau.Click += new System.EventHandler(this.btn_sau_Click);
             // 
             // dgv_DSSV
             // 
@@ -324,18 +329,18 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.button9);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.lb_trang_banghi);
+            this.Controls.Add(this.btn_cuoi);
+            this.Controls.Add(this.btn_truoc);
+            this.Controls.Add(this.btn_dau);
+            this.Controls.Add(this.btn_timKiem);
+            this.Controls.Add(this.txt_timKiem);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btn_lammoi);
             this.Controls.Add(this.btn_xoa);
             this.Controls.Add(this.btn_sua);
             this.Controls.Add(this.btn_them);
-            this.Controls.Add(this.button10);
+            this.Controls.Add(this.btn_sau);
             this.Controls.Add(this.dgv_DSSV);
             this.Controls.Add(this.groupBox1);
             this.Name = "UC_QLSinhVien";
@@ -363,18 +368,18 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtMSSV;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label lb_trang_banghi;
+        private System.Windows.Forms.Button btn_cuoi;
+        private System.Windows.Forms.Button btn_truoc;
+        private System.Windows.Forms.Button btn_dau;
+        private System.Windows.Forms.Button btn_timKiem;
+        private System.Windows.Forms.TextBox txt_timKiem;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btn_lammoi;
         private System.Windows.Forms.Button btn_xoa;
         private System.Windows.Forms.Button btn_sua;
         private System.Windows.Forms.Button btn_them;
-        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button btn_sau;
         private System.Windows.Forms.DataGridView dgv_DSSV;
     }
 }

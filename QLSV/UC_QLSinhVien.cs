@@ -15,6 +15,9 @@ namespace QLSV
         databaseDataContext db = new databaseDataContext("Data Source=LAPTOP-I8G20P67\\DNA;Initial Catalog=quanlysv;User ID=sa;Password=Ngocanh2005@;TrustServerCertificate=True");
         string _selectedMaSV;
         List<tbl_sinhvien> _allData;
+        int _currentPage = 1;
+        int _pageSize = 3;
+        int _totalPages = 1;
         public UC_QLSinhVien()
         {
             InitializeComponent();
@@ -60,16 +63,7 @@ namespace QLSV
                 _allData = db.tbl_sinhviens
                              .OrderBy(sv => sv.id)
                              .ToList();
-                dgv_DSSV.DataSource = _allData
-                    .Select(sv => new
-                    {
-                        sv.id,
-                        sv.hoten,
-                        sv.gioitinh,
-                        sv.ngaysinh,
-                        sv.malop
-                    })
-                    .ToList();
+                ApplyPaging();
             }
             catch (Exception ex)
             {
@@ -80,7 +74,24 @@ namespace QLSV
 
         private void ApplyPaging()
         {
+            _totalPages = Math.Max(1, (int)Math.Ceiling(_allData.Count / (double)_pageSize));
+            if (_currentPage < 1) _currentPage = 1;
+            if (_currentPage > _totalPages) _currentPage = _totalPages;
 
+            dgv_DSSV.DataSource = _allData
+                .Skip((_currentPage - 1) * _pageSize)
+                .Take(_pageSize)
+                .Select(sv => new
+                {
+                    sv.id,
+                    sv.hoten,
+                    sv.gioitinh,
+                    sv.ngaysinh,
+                    sv.malop
+                })
+                .ToList();
+
+            lb_trang_banghi.Text = _currentPage + "/" + _totalPages + "   |   " + _allData.Count + " bản ghi";
         }
 
         public void LoadDSLH4CBX()
@@ -196,6 +207,49 @@ namespace QLSV
 
             if (row.Cells["ngaysinh"].Value is DateTime dt)
                 dtpNgaySinh.Value = dt;
+        }
+
+        private void btn_dau_Click(object sender, EventArgs e)
+        {
+            _currentPage = 1;
+            ApplyPaging();
+        }
+
+        private void btn_truoc_Click(object sender, EventArgs e)
+        {
+            _currentPage--;
+            ApplyPaging();
+        }
+
+        private void btn_sau_Click(object sender, EventArgs e)
+        {
+            _currentPage++;
+            ApplyPaging();
+        }
+
+        private void btn_cuoi_Click(object sender, EventArgs e)
+        {
+            _currentPage = _totalPages;
+            ApplyPaging();
+        }
+
+        private void btn_timKiem_Click(object sender, EventArgs e)
+        {
+            LoadSinhVienTheoTu(txt_timKiem.Text);
+        }
+
+        private void LoadSinhVienTheoTu(string tuKhoa)
+        {
+            string tk = tuKhoa.Trim();
+            _allData = db.tbl_sinhviens
+                          .Where(sv =>
+                              sv.id.Contains(tk) ||
+                              sv.hoten.Contains(tk) ||
+                              sv.malop.Contains(tk))
+                          .OrderBy(sv => sv.id)
+                          .ToList();
+            _currentPage = 1;
+            ApplyPaging();
         }
     }
 }
