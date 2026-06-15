@@ -45,7 +45,7 @@
             this.btn_timKiem = new System.Windows.Forms.Button();
             this.txt_timKiem = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btn_xemDanhSach = new System.Windows.Forms.Button();
             this.btn_lammoi = new System.Windows.Forms.Button();
             this.btn_xoa = new System.Windows.Forms.Button();
             this.btn_sua = new System.Windows.Forms.Button();
@@ -230,17 +230,18 @@
             this.label6.TabIndex = 25;
             this.label6.Text = "Tìm kiếm (Mã ID / Mã lớp / Tên lớp):";
             // 
-            // button5
+            // btn_xemDanhSach
             // 
-            this.button5.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button5.Location = new System.Drawing.Point(19, 685);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(480, 63);
-            this.button5.TabIndex = 24;
-            this.button5.Text = "Xem danh sách sinh viên";
-            this.button5.UseVisualStyleBackColor = false;
+            this.btn_xemDanhSach.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btn_xemDanhSach.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_xemDanhSach.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_xemDanhSach.Location = new System.Drawing.Point(19, 685);
+            this.btn_xemDanhSach.Name = "btn_xemDanhSach";
+            this.btn_xemDanhSach.Size = new System.Drawing.Size(480, 63);
+            this.btn_xemDanhSach.TabIndex = 24;
+            this.btn_xemDanhSach.Text = "Xem danh sách sinh viên";
+            this.btn_xemDanhSach.UseVisualStyleBackColor = false;
+            this.btn_xemDanhSach.Click += new System.EventHandler(this.btn_xemDanhSach_Click);
             // 
             // btn_lammoi
             // 
@@ -317,7 +318,7 @@
             this.Controls.Add(this.btn_timKiem);
             this.Controls.Add(this.txt_timKiem);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.btn_xemDanhSach);
             this.Controls.Add(this.btn_lammoi);
             this.Controls.Add(this.btn_xoa);
             this.Controls.Add(this.btn_sua);
@@ -352,7 +353,7 @@
         private System.Windows.Forms.Button btn_timKiem;
         private System.Windows.Forms.TextBox txt_timKiem;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btn_xemDanhSach;
         private System.Windows.Forms.Button btn_lammoi;
         private System.Windows.Forms.Button btn_xoa;
         private System.Windows.Forms.Button btn_sua;
